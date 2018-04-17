@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}发布主题{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/addBanKuai.css') }}">
+{% endblock %}
+
+{% block main %}
+    <h3 class="page-title" >发布板块</h3>
+    <form action="" method="post">
+        <div class="form-container" id="question">
+            <div class="form-group">
+                <input type="text" placeholder="请输入板块" name="title" class="form-control">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" href="{{ url_for('index') }}">提交</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,61 @@
+.question-info{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.question-info span{
+    margin-left: 10px;
+}
+
+.answer-list{
+    padding-left: 0px;
+}
+
+.answer-list li{
+    list-style: none;
+    border-bottom: 1px solid #ffffff;
+    padding-top: 10px;
+}
+
+.huifu-list{
+    margin-left: 100px;
+    /*background: #ffffff;*/
+    list-style: none;
+    border-bottom: 1px solid #eeeeee;
+    /*padding-top: 10px;*/
+}
+
+#huifubtn{
+    background: #eeeeee;
+}
+
+.avatar{
+    width: 40px;
+    height: 40px;
+}
+.user-info{
+    color: #9b9b9b;
+    font-size: 16px;
+    line-height: 40px;
+}
+.user-info .username{
+    margin-left: 20px;
+}
+.user-info .create-time{
+    float: right;
+}
+.answer-content{
+    margin-left: 60px;
+}
+
+.main{
+    background: #ffffff;
+    width: 930px;
+    margin: 50px auto;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.huifu-button{
+
+}

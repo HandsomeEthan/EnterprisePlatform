@@ -1,0 +1,32 @@
+body{
+    background: #eeeeee;
+}
+
+/*.main{*/
+    /*background: #ffffff;*/
+    /*width: 930px;*/
+    /*margin: 100px auto;*/
+    /*overflow: hidden;*/
+    /*padding: 10px;*/
+/*}*/
+
+.page-title{
+    text-align: center;
+}
+
+.form-container{
+    width: 300px;
+    margin: 0 auto;
+}
+
+.logo{
+
+}
+
+.main-index{
+    background: #eeeeee;
+    /*width: 1430px;*/
+    margin: 50px auto;
+    overflow: hidden;
+    padding: 10px;
+}

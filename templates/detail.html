@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}详情{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/detail.css') }}">
+{% endblock %}
+
+{% block main %}
+<div class="main">
+    <h3 class="page-title">{{ theme.title }}</h3>
+    <p class="question-info">
+        <span>作者: {{ theme.author.username }}</span>
+        <span>时间: {{ theme.create_time }}</span>
+    </p>
+    <hr>
+    <p class="question-content">{{ theme.content }}</p>
+    <hr>
+    <h4>评论: {{ theme.answer_num }}</h4>
+    <form action="{{ url_for('add_answer') }}" method="post">
+        <div class="form-group">
+            <textarea name="answer_content" rows="2" class="form-control" placeholder="请发表评论"></textarea>
+            <input type="hidden" name="theme_id" value="{{ theme.id }}">
+        </div>
+        <div class="form-group" style="text-align: right">
+                {% if user %}
+                    <button class="btn btn-primary">评论</button>
+                {% else %}
+                    <button href="{{ url_for('login') }}" class="btn btn-primary">登录后评论</button>
+                {% endif %}
+        </div>
+    </form>
+    <ul class="answer-list">
+        {% for answer in theme.answers %}
+            {% if answer.content and (answer.father_answer_id==None or answer.father_answer_id==0) %}
+                <li>
+                <div class="user-info">
+                    <img src="{{ url_for('static',filename='images/AI.jpg') }}" alt="" class="avatar">
+                    <span class="username">{{ answer.author.username }}</span>
+                    <span class="create-time">{{ answer.create_time }}</span>
+                </div>
+                <p class="answer-content">{{ answer.content }}</p>
+                <div>
+                    <form action="{{ url_for('huifu',father_answer_id=answer.id) }}" method="get">
+                        <div class="form-group" style="text-align: right">
+                            <button class="btn" id="huifubtn">回复</button>
+                        </div>
+                    </form>
+                    <ul class="huifu-list">
+                        {% for huifu in theme.answers %}
+                            {% if huifu.father_answer_id==answer.id %}
+                                <li>
+                                    <div class="user-info">
+                                        <span class="username">{{ huifu.author.username }}</span>
+                                        <span class="create-time">{{ huifu.create_time }}</span>
+                                    </div>
+                                    <p class="answer-content">{{ huifu.content }}</p>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
